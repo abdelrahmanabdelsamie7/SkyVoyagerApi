@@ -1,6 +1,6 @@
 <?php
 namespace App\Models;
-use App\Models\{User,FlightSchedule};
+use App\Models\{User,FlightSchedule,OfferImage};
 use App\traits\UsesUuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -45,5 +45,9 @@ class Offer extends Model
     public function getTotalPriceAttribute()
     {
         return $this->pivot?->num_of_tickets * $this->price_per_ticket ?? 0;
+    }
+    public function images()
+    {
+        return $this->hasMany(OfferImage::class, 'offer_id');
     }
 }

@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\File;
 class OfferController extends Controller
 {
     use ResponseJsonTrait;
+    public function __construct()
+    {
+        $this->middleware('auth:admins')->only(['store', 'update', 'destroy']);
+    }
     public function index()
     {
         $offers = Offer::all();
@@ -16,7 +20,7 @@ class OfferController extends Controller
     }
     public function show(string $id)
     {
-        $offer = Offer::with('flightSchedules')->findOrFail($id);
+        $offer = Offer::with(['flightSchedules','images'])->findOrFail($id);
         return $this->sendSuccess('Specific Offer Retrieved Successfully!', $offer);
     }
     public function store(OfferRequest $request)

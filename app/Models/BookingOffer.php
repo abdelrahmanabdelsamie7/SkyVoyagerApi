@@ -11,7 +11,7 @@ class BookingOffer extends Model
     protected $table = 'booking_offers';
     protected $fillable = [
         'user_id',
-        'offer_id',
+        'schedule_id',
         'num_of_tickets'
     ];
     public function getTotalPriceAttribute()

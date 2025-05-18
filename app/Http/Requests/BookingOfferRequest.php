@@ -11,7 +11,7 @@ class BookingOfferRequest extends FormRequest
     {
         return [
             'user_id' => 'required|uuid|exists:users,id',
-            'offer_id' => 'required|uuid|exists:offers,id',
+            'schedule_id' => 'required|uuid|exists:flight_schedules,id',
             'num_of_tickets' => 'required|integer|min:1',
         ];
     }

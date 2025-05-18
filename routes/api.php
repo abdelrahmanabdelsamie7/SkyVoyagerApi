@@ -1,13 +1,15 @@
 <?php
 use App\Http\Controllers\{AuthUserController,AuthAdminController};
-use App\Http\Controllers\API\{HotelController,OfferController,FlightScheduleController,PopularPlaceController};
+use App\Http\Controllers\API\{HotelController,OfferController,FlightScheduleController,PopularPlaceController,OfferImageController,BookingHotelController,BookingOfferController};
 
 Route::apiResources([
     'hotels' => HotelController::class,
     'offers' => OfferController::class,
+    'offer-images' => OfferImageController::class,
     'flight-schedules' => FlightScheduleController::class,
     'popular-places' => PopularPlaceController::class,
-
+    'booking-hotel' => BookingHotelController::class,
+    'booking-offer' => BookingOfferController::class,
 ]);
 
 Route::prefix('user')->group(function () {

@@ -9,6 +9,10 @@ use App\Http\Requests\PopularPlaceRequest;
 class PopularPlaceController extends Controller
 {
     use ResponseJsonTrait;
+    public function __construct()
+    {
+        $this->middleware('auth:admins')->only(['store', 'update', 'destroy']);
+    }
     public function index()
     {
         $popular_places = PopularPlace::all();

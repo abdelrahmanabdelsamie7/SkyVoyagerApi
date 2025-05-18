@@ -8,6 +8,10 @@ use App\Http\Controllers\Controller;
 class FlightScheduleController extends Controller
 {
     use ResponseJsonTrait;
+    public function __construct()
+    {
+        $this->middleware('auth:admins')->only(['store', 'update', 'destroy']);
+    }
     public function index()
     {
         $flight_schedules = FlightSchedule::all();

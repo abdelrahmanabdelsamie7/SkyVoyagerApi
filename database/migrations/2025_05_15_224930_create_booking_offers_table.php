@@ -8,7 +8,7 @@ return new class extends Migration {
         Schema::create('booking_offers', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignUuid('offer_id')->constrained('offers')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignUuid('schedule_id')->constrained('flight_schedules')->cascadeOnDelete()->cascadeOnUpdate();
             $table->integer('num_of_tickets');
             $table->timestamps();
         });
