@@ -1,6 +1,6 @@
 <?php
 namespace App\Models;
-use App\Models\{User,FlightSchedule,OfferImage};
+use App\Models\{User, FlightSchedule, OfferImage};
 use App\traits\UsesUuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

@@ -9,7 +9,7 @@ return new class extends Migration {
             $table->uuid('id')->primary();
             $table->foreignUuid('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignUuid('hotel_id')->constrained('hotels')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->integer('num_of_rooms')->default(1);
+            $table->integer('num_of_beds')->default(1);
             $table->date('check_in_date');
             $table->date('check_out_date');
             $table->timestamps();
